@@ -135,6 +135,10 @@ var arr = [1, 2, 3];
 ### `Object`
 `Object` is the base type of all non-primitive types in JavaScript. Instances of `Object` can be created directly using `{}` (curly braces). Example:
 ```js
-var obj = { name: 'Veselin Karaganev', dob: 2000 };
+var obj = { name: 'Veselin Karaganev', yearOfBirth: 2000 };
 ```
-Objects declared in this way are somewhat similar to Python's `dict` objects.
+Objects declared in this way are somewhat similar to Python's `dict` objects. If a key is not a valid identifier, the name of the key should be enclosed in quotes. Example:
+
+```js
+var obj = { 'invalid key': true };
+```
