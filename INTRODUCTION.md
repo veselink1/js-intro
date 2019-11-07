@@ -142,3 +142,127 @@ Objects declared in this way are somewhat similar to Python's `dict` objects. If
 ```js
 var obj = { 'invalid key': true };
 ```
+
+## Conditional Statements
+See [Making decisions in your code — conditionals](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals).
+
+## Loops
+See [Looping code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code).
+
+### `Functions`
+```js
+function myFunc(a, b) {
+    return a + b;
+}
+var resultA = myFunc(1, 2);
+var resultB = myFunc(5, 10);
+```
+Functions are reusable, discrete blocks of code that can optionally have arguments and a return value. The argument list of functions does not need to be prepended by the `var` keyword.
+
+## The `document` object
+The `document` object is accessible by the global `document` variable. The `document` object provides access to the current page's Document Object Model (DOM) - the representation of the webpage in JavaScript. 
+
+One can query different elements from the document by using one of the following methods:
+- `document.getElementById(id)` - by the value of the **unique** `id` attribute of the element
+- `document.getElementsByClassName(className)` - by the contents of the `class-name` attribute of the element
+- `document.getElementsByTagName(tagName)` - by the tag name of the elements
+- `document.querySelector(querySelector)` - by using a CSS selector (e.g. `"div.className"`)
+- `document.querySelectorAll(querySelector)` - by using a CSS selector (e.g. `"div.className"`)
+
+Methods containing plural forms or all in their name return a list of elements.
+
+After you have obtained a DOM object referring to an HTML element, you can use methods on the object to change the properties of that element. Example:
+
+```html
+<div id="myDiv">Hello, World!</div>
+<script>
+var myDiv = document.getElementById('myDiv');
+myDiv.textContent = myDiv.textContent.toUpperCase();
+</script>
+```
+
+Here the `toUpperCase()` method on `String` is used. The `Element#textContent` property is equal to the textual content of the element (the string `Hello, World!` in this case).
+
+New elements can be added to the document using the `createElement` and `appendChild` methods. Example:
+
+```html
+<ul id="myList">
+    <li>Broccoli</li> <!-- Oh, noo! -->
+</ul>
+<script>
+var myList = document.getElementById('myList');
+
+var newItem = document.createElement('li');
+newItem.textContent = 'Ice Cream'; // Oh, yeeaah!
+
+// Insert the element object into the document
+// by adding it as a child of the myList element.
+myList.appendChild(newItem);
+</script>
+```
+
+Note that until the `Element#appendChild` method is invoked, the element exists but is not present in the visible DOM.
+
+## Using event listeners
+Event listeners are a fundamental part of any JavaScript web application. They allow the execution of code in response to an event (as opposed to only while loading the page). Event listeners can be attached to elements and removed from them with the `addEventListener(eventName, callback)` and `removeEventListener(eventName, callback)` methods. Event listeners are defined by an event type an a callback function.
+
+```html
+<button id="myButton">Click me!</button>
+<script>
+
+function onButtonClick() {
+    alert("You win an iPhone 11! But first, you have to take our survey!")
+}
+
+var myButton = document.getElementById('myButton');
+myButton.addEventListener('click', onButtonClick);
+
+</script>
+```
+
+Try this code in your browser. Or, even better, use [JSFiddle](https://jsfiddle.net/).
+Here is a link to the above example: https://jsfiddle.net/15k2hvzc/
+
+Many different event types exist corresponding to different actions:
+- click - for when the user clicks on the button 
+- keydown - for when the presses a key down on the keyboard
+- keyup - for when the releases a key on the keyboard
+- change - for when the contents of an input field changes
+- many more...
+
+Also examples from the following pages:
+- [DOM Elements](https://www.w3schools.com/js/js_htmldom_elements.asp)
+- [Modifying DOM Elements](https://www.w3schools.com/js/js_htmldom_html.asp)
+- [Event Listeners](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
+
+## Reducing script execution delay
+As mentioned someplace above, embedding scripts in the `<head>` element means that most of the page won't have loaded yet, and embedding scripts at the end of the `<body>` would mean that the browser would wait for images and other resources to load before even downloading the script. 
+
+There is a third, better way to execute JavaScript - in-between these two event. By using the DOMContentLoaded event, we can make sure that all the HTML is loaded, but not necessarily all the fancy imagery and fonts. Here is how to do that:
+```html
+<head>
+...
+<script>
+    function runAfterDOMLoads() {
+        var button = document.getElementById('button');
+        // Use button
+    }
+    document.addEventListener('DOMContentLoaded', runAfterDOMLoads);
+</script>
+</head>
+<body>
+    <button id="button">Click</button>
+    <!-- Many images and more content -->
+</body>
+```
+
+Of course, it is imperative for the `document.addEventListener('DOMContentLoaded', ...)` statement to be executed prior to the body loading for maximum gains. That is, don't do that if the script is already at the bottom of the `<body>` element, as that would make no sense.
+
+## Other resources
+An unmatched resource for HTML, CSS and JavaScript is [MDN - the Mozilla Developer Network website](https://developer.mozilla.org/en-US/).
+Another popular, although not so thorough and often not very precise in the definitions and explanations of stuff is [W3Schools](https://www.w3schools.com/).
+
+In particular, take a look at the following:
+- [JavaScript Basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics)
+- [JavaScript Functions](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions)
+- [JavaScript Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
