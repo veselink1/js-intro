@@ -225,12 +225,12 @@ Here is a link to the above example: https://jsfiddle.net/15k2hvzc/
 
 Many different event types exist corresponding to different actions:
 - click - for when the user clicks on the button 
-- keydown - for when the presses a key down on the keyboard
-- keyup - for when the releases a key on the keyboard
+- keydown - for when the user presses a key down on the keyboard
+- keyup - for when the user releases a key on the keyboard
 - change - for when the contents of an input field changes
 - many more...
 
-Also examples from the following pages:
+Also see the examples on the following pages:
 - [DOM Elements](https://www.w3schools.com/js/js_htmldom_elements.asp)
 - [Modifying DOM Elements](https://www.w3schools.com/js/js_htmldom_html.asp)
 - [Event Listeners](https://www.w3schools.com/js/js_htmldom_eventlistener.asp)
@@ -262,7 +262,11 @@ Of course, it is imperative for the `document.addEventListener('DOMContentLoaded
 An unmatched resource for HTML, CSS and JavaScript is [MDN - the Mozilla Developer Network website](https://developer.mozilla.org/en-US/).
 Another popular, although not so thorough and often not very precise in the definitions and explanations of stuff is [W3Schools](https://www.w3schools.com/).
 
-In particular, take a look at the following:
+In particular, it is important to take a look at the following:
 - [JavaScript Basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics)
 - [JavaScript Functions](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions)
 - [JavaScript Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
+
+A good idea is to always make sure to lookup any unknown language constructs or built-ins on [MDN](https://developer.mozilla.org/en-US/).
+
+For example to see all 260 methods and properties of the `document` object, [click here](https://developer.mozilla.org/en-US/docs/Web/API/Document). That is of course not possible for any person to go through at once. That is why I would recommend carefully reading through the summary of the page and then finding some examples on the internet of how to use it.
