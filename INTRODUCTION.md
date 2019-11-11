@@ -352,3 +352,13 @@ In particular, it is important to take a look at the following:
 A good idea is to always make sure to lookup any unknown language constructs or built-ins on [MDN](https://developer.mozilla.org/en-US/).
 
 For example to see all 260 methods and properties of the `document` object, [click here](https://developer.mozilla.org/en-US/docs/Web/API/Document). That is of course not possible for any person to go through at once. That is why I would recommend carefully reading through the summary of the page and then finding some examples on the internet of how to use it.
+
+
+## Examples & Exercises
+
+1. 
+    i. Open the [Todo List](https://jsfiddle.net/otcrna8p/4/) example and study it. 
+
+    ii. Add CSS to enhance the appearance of the UI. Do not use tag name selectors. Use class-name instead.
+    
+    iii. Add input checking via JS. Verify that the input string is at least 3 characters long. Show a message to the user on incorrect input.
