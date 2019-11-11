@@ -10,6 +10,8 @@ JavaScript is the most popular implementation of ECMAScript. The two are often c
 
 JavaScript is an implementation of that specification, which builds on top of it (e.g.: the document object which is used to interface with the current HTML document is specified in the JS (short for JavaScript) specification, whereas ECMAScript does not mention anything about the code running in a browser and interfacing with web pages).
 
+In 2015, the long-awaited ECMAScript 6 (also knows as ES2015) was released and added many new features to JavaScript. Current web browsers support most of the ES6 specification and the general consensus is that new JavaScript projects should try to make use of these new features. ES6+ features will be mentioned separately in this document.
+
 JavaScript is also a considered a scripting language, for which there is not a strict definition, but a simple and straightforward explanation of what that means is that the “programs” (called scripts) are usually distributed in source form (as opposed to being compiled) and are meant to act as a bridge between usually several other technologies (HTML, CSS) in this case).
 
 ## Why do we need JavaScript?
@@ -23,9 +25,9 @@ Everything is on the web, which puts JavaScript in a very special place. JavaScr
 
 JavaScript, for good or bad, can be used for much, much more that what it was originally designed for. Here is a non-exhaustive list: web applications, mobile application, desktop applications, server applications and games.
 
-Here is a list of popular pieces of software that were built with JavaScript:
+Here is a list of popular pieces of software that make extensive use of JavaScript:
 
-- The Google Slides web application which was used to create this application
+- The Google Slides web application which can be used to create presentations in the browser
 - Netflix has stated they have built part of the back-end in JavaScript
 - The Visual Studio Code and Atom cross-platform text editors
 - The Spotify Web Player and Desktop application
@@ -61,6 +63,21 @@ var variableName = 10;
 
 Note that for later reassignment of the variable, the `var` keyword must **not** be used.
 
+ECMAScript 2015 adds two new ways to declare variables in JavaScript:
+
+```js
+let variableName;
+let variableName = 10;
+```
+
+For most intents and purposes, `let` is equivalent to `var` and **should be preferred**.
+
+```js
+const variableName = 10;
+```
+
+The `const` keyword is used to specify a variable which **cannot be reassigned**. Constant variables should be assigned a value at the time of declaration.
+
 ## Data Types
 
 There are *five primitive data types in JavaScript:
@@ -93,54 +110,54 @@ The first approach will be used in these examples only, but might be looked down
 ## `Boolean`
 The `Boolean` data type has two values, written `true` and `false`. Example:
 ```js
-var isValid = true;
+let isValid = true;
 ```
 
 ## `Number`
 Literals of the `Number` type are written in the usual decimal notation. Hexadecimal (base-16), Octal (base-8) and Scientific notations are also supported. Example:
 ```js
-var decimal = 10.34; // 10.34
-var hexadecimal = 0x10; // 16
-var octal = 0o10; // 8
-var sci = 1E3; // 1000
+let decimal = 10.34; // 10.34
+let hexadecimal = 0x10; // 16
+let octal = 0o10; // 8
+let sci = 1E3; // 1000
 ```
 
 ## `String`
 Strings are created by enclosing text in single (`'`), double (`"`) quotes, or less-commonly backticks (\`) (for multi-line or interpolated strings). 
 Quote-enclosed strings can only span a single line. Example:
 ```js
-var text = 'Hello, World!';
+let text = 'Hello, World!';
 ```
 Which style you prefer is irrelevant, but choose a style and stick to it.
 
 ### `Null`
 The `Null` data type describes the absence of a value and is equivalent to Python's `None` (of type `NoneType`). The only value of the `Null` data type is `null`. Example:
 ```js
-var myVar = null;
+let myVar = null;
 ```
 
 ### `Undefined`
 The `Undefined` data type describes the unassigned variables. The only value of the `Undefined` data type is `undefined`.
 ```js
-var myVar; // value is undefined
-var myOtherVar = undefined; // this is discouraged
+let myVar; // value is undefined
+let myOtherVar = undefined; // this is discouraged
 ```
 
 ### `Array`
 Arrays can be created using `[]` (square brackets) just like in Python. Example:
 ```js
-var arr = [1, 2, 3];
+let arr = [1, 2, 3];
 ```
 
 ### `Object`
 `Object` is the base type of all non-primitive types in JavaScript. Instances of `Object` can be created directly using `{}` (curly braces). Example:
 ```js
-var obj = { name: 'Veselin Karaganev', yearOfBirth: 2000 };
+let obj = { name: 'Veselin Karaganev', yearOfBirth: 2000 };
 ```
 Objects declared in this way are somewhat similar to Python's `dict` objects. If a key is not a valid identifier, the name of the key should be enclosed in quotes. Example:
 
 ```js
-var obj = { 'invalid key': true };
+let obj = { 'invalid key': true };
 ```
 
 ## Conditional Statements
@@ -154,10 +171,10 @@ See [Looping code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Bui
 function myFunc(a, b) {
     return a + b;
 }
-var resultA = myFunc(1, 2);
-var resultB = myFunc(5, 10);
+let resultA = myFunc(1, 2);
+let resultB = myFunc(5, 10);
 ```
-Functions are reusable, discrete blocks of code that can optionally have arguments and a return value. The argument list of functions does not need to be prepended by the `var` keyword.
+Functions are reusable, discrete blocks of code that can optionally have arguments and a return value. The argument list of functions does not need to be prepended by a variable declaration keyword (`var`, `let`, `const`).
 
 ## The `document` object
 The `document` object is accessible by the global `document` variable. The `document` object provides access to the current page's Document Object Model (DOM) - the representation of the webpage in JavaScript. 
@@ -176,7 +193,7 @@ After you have obtained a DOM object referring to an HTML element, you can use m
 ```html
 <div id="myDiv">Hello, World!</div>
 <script>
-var myDiv = document.getElementById('myDiv');
+let myDiv = document.getElementById('myDiv');
 myDiv.textContent = myDiv.textContent.toUpperCase();
 </script>
 ```
@@ -190,9 +207,9 @@ New elements can be added to the document using the `createElement` and `appendC
     <li>Broccoli</li> <!-- Oh, noo! -->
 </ul>
 <script>
-var myList = document.getElementById('myList');
+let myList = document.getElementById('myList');
 
-var newItem = document.createElement('li');
+let newItem = document.createElement('li');
 newItem.textContent = 'Ice Cream'; // Oh, yeeaah!
 
 // Insert the element object into the document
@@ -214,7 +231,7 @@ function onButtonClick() {
     alert("You win an iPhone 11! But first, you have to take our survey!")
 }
 
-var myButton = document.getElementById('myButton');
+let myButton = document.getElementById('myButton');
 myButton.addEventListener('click', onButtonClick);
 
 </script>
@@ -244,7 +261,7 @@ There is a third, better way to execute JavaScript - in-between these two event.
 ...
 <script>
     function runAfterDOMLoads() {
-        var button = document.getElementById('button');
+        let button = document.getElementById('button');
         // Use button
     }
     document.addEventListener('DOMContentLoaded', runAfterDOMLoads);
@@ -257,6 +274,49 @@ There is a third, better way to execute JavaScript - in-between these two event.
 ```
 
 Of course, it is imperative for the `document.addEventListener('DOMContentLoaded', ...)` statement to be executed prior to the body loading for maximum gains. That is, don't do that if the script is already at the bottom of the `<body>` element, as that would make no sense.
+
+## JSON
+
+JSON is an acronym for JavaScript Object Notation. It a format specification for describing scalar or compound values. The JSON syntax is a subset of the JavaScript syntax for literal values. JSON is usually used as a means of communication between different applications or computers. 
+
+Over the time, JSON has replaced XML as the de facto standard for client <-> server communication due to the increasing popularity of JavaScript for building ever more complex applications and the built-in support for the syntax.
+
+Open [OpenWeatherMap API](https://openweathermap.org/current) to see how JSON is used as an exchange format to send back information about the weather. 
+
+The following example constitute valid JSON.
+```json
+{ 
+    "first_name": "Veselin", 
+    "last_name": "Karaganev", 
+    "email": "vesko.karaganev@example.com" 
+}
+```
+
+Open [Example API Request](https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22) and study the response. What do you notice?
+
+Being a subset of the JavaScript syntax for specifying literal values, any valid JSON can be freely used to specify values in JavaScript.
+
+```js
+let user = { 
+    "first_name": "Veselin", 
+    "last_name": "Karaganev", 
+    "email": "vesko.karaganev@example.com" 
+};
+```
+
+Note that the reverse is not strictly true! The following constraints apply in JSON:
+- Object (dictionary) keys should always be enclosed in double quotes (`"`)
+- A trailing comma is not allowed after the last key-value pair in the object specification.
+- The only supported types in JSON are `Number`, `String`, `Array`, `Object`, `Null`.
+
+The following is **not** valid JSON, but is **valid** JavaScript.
+```js
+{
+    first_name: "Veselin", // <- note the missing double quotes (")
+    "last_name": 'Karaganev', // <- note the single quotes (')
+    "email": "vesko.karaganev@email.com", // <- note the trailing comma
+}
+```
 
 ## Other resources
 An unmatched resource for HTML, CSS and JavaScript is [MDN - the Mozilla Developer Network website](https://developer.mozilla.org/en-US/).
