@@ -107,13 +107,15 @@ The location of the inclusion also has to be considered (recall the execution mo
 You will see a third, more commonly-used approach in the examples.
 The first approach will be used in these examples only, but might be looked down upon in an actual project.
 
-## `Boolean`
+## Data Types
+
+### `Boolean`
 The `Boolean` data type has two values, written `true` and `false`. Example:
 ```js
 let isValid = true;
 ```
 
-## `Number`
+### `Number`
 Literals of the `Number` type are written in the usual decimal notation. Hexadecimal (base-16), Octal (base-8) and Scientific notations are also supported. Example:
 ```js
 let decimal = 10.34; // 10.34
@@ -122,7 +124,7 @@ let octal = 0o10; // 8
 let sci = 1E3; // 1000
 ```
 
-## `String`
+### `String`
 Strings are created by enclosing text in single (`'`), double (`"`) quotes, or less-commonly backticks (\`) (for multi-line or interpolated strings). 
 Quote-enclosed strings can only span a single line. Example:
 ```js
@@ -166,7 +168,7 @@ See [Making decisions in your code — conditionals](https://developer.mozilla.o
 ## Loops
 See [Looping code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code).
 
-### `Functions`
+## Functions
 ```js
 function myFunc(a, b) {
     return a + b;
@@ -175,6 +177,26 @@ let resultA = myFunc(1, 2);
 let resultB = myFunc(5, 10);
 ```
 Functions are reusable, discrete blocks of code that can optionally have arguments and a return value. The argument list of functions does not need to be prepended by a variable declaration keyword (`var`, `let`, `const`).
+
+### Arrow Functions
+Since ECMAScript 2015, an alternative way to define functions also exists and may be preferred in certain circumstances. 
+
+```js
+let myFunc = (a, b) => {
+    return a + b;
+};
+
+let resultA = myFunc(1, 2);
+let resultB = myFunc(5, 10);
+```
+
+Functions defined with `() =>` are known as **arrow functions**. In other languages they are also known as lambda functions or closures (the two are mostly used synonymously). Notice that since the arrow function syntax does not allow us to directly specify a name on the right hand side of the definition, to bind the arrow function to a name we assign it to a variable (`myFunc` in this cases).
+
+A nice thing about **arrow functions** is that if the body of the function includes only a single statement, the `{}` braces can be omitted.
+
+```js
+let myFunc = (a, b) => a + b;
+```
 
 ## The `document` object
 The `document` object is accessible by the global `document` variable. The `document` object provides access to the current page's Document Object Model (DOM) - the representation of the webpage in JavaScript. 
@@ -277,11 +299,9 @@ Of course, it is imperative for the `document.addEventListener('DOMContentLoaded
 
 ## JSON
 
-JSON is an acronym for JavaScript Object Notation. It a format specification for describing scalar or compound values. The JSON syntax is a subset of the JavaScript syntax for literal values. JSON is usually used as a means of communication between different applications or computers. 
+JSON is an acronym for JavaScript Object Notation. It a format specification for describing single or compound values. The JSON syntax is a subset of the JavaScript syntax for literal values. JSON is usually used as a means of communication between different applications or computers. 
 
 Over the time, JSON has replaced XML as the de facto standard for client <-> server communication due to the increasing popularity of JavaScript for building ever more complex applications and the built-in support for the syntax.
-
-Open [OpenWeatherMap API](https://openweathermap.org/current) to see how JSON is used as an exchange format to send back information about the weather. 
 
 The following example constitute valid JSON.
 ```json
@@ -292,7 +312,9 @@ The following example constitute valid JSON.
 }
 ```
 
-Open [Example API Request](https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22) and study the response. What do you notice?
+Open [OpenWeatherMap API](https://openweathermap.org/current) to see how JSON is used as an exchange format to provide information about the weather. 
+
+Also see [Example API Request](https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22) and study the response. What do you notice?
 
 Being a subset of the JavaScript syntax for specifying literal values, any valid JSON can be freely used to specify values in JavaScript.
 
@@ -304,7 +326,7 @@ let user = {
 };
 ```
 
-Note that the reverse is not strictly true! The following constraints apply in JSON:
+Note that the opposite is not strictly true! The following constraints apply in JSON:
 - Object (dictionary) keys should always be enclosed in double quotes (`"`)
 - A trailing comma is not allowed after the last key-value pair in the object specification.
 - The only supported types in JSON are `Number`, `String`, `Array`, `Object`, `Null`.
