@@ -78,6 +78,19 @@ const variableName = 10;
 
 The `const` keyword is used to specify a variable which **cannot be reassigned**. Constant variables should be assigned a value at the time of declaration.
 
+### Variable Naming
+Variable names are written in [camelCase](https://en.wikipedia.org/wiki/Camel_case). 
+
+```js
+let firstNameInput = document.getElementById('first-name');
+```
+
+Constant names are written in [SCREAMING_SNAKE_CASE](https://en.wikipedia.org/wiki/Snake_case).
+
+```js
+const MY_CONSTANT = 10;
+```
+
 ## Data Types
 
 There are *five primitive data types in JavaScript:
@@ -177,6 +190,15 @@ let resultA = myFunc(1, 2);
 let resultB = myFunc(5, 10);
 ```
 Functions are reusable, discrete blocks of code that can optionally have arguments and a return value. The argument list of functions does not need to be prepended by a variable declaration keyword (`var`, `let`, `const`).
+
+### Function Naming
+Function names are written in [camelCase](https://en.wikipedia.org/wiki/Camel_case). 
+
+```js
+function addTwoNumbers(x, y) {
+    return x + y;
+}
+```
 
 ### Arrow Functions
 Since ECMAScript 2015, an alternative way to define functions also exists and may be preferred in certain circumstances. 
