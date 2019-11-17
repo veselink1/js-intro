@@ -1,5 +1,10 @@
 # **React** Examples
 
+## Learning React
+- ### Read the [Overview](https://reactjs.org/tutorial/tutorial.html#overview) on the official React website.
+- ### Proceed with [Completing the Game](https://reactjs.org/tutorial/tutorial.html#completing-the-game) to learn how to implement a Tic-Tac-Toe game.
+
+## Learn by Example
 The examples are *"ordered by difficulty"*.
 
 * ### [My First React Component](https://codesandbox.io/s/eloquent-heyrovsky-fx800)
